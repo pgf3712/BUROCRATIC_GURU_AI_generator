@@ -1,1 +1,1 @@
-# BUROCRATIC_GURU_AI_generator
+# AI_Generator
