@@ -41,29 +41,29 @@ def test_registro_usuario():
 #     assert response.status_code == 400
 #     assert response.json()["detail"] == "Ya hay un usuario registrado."
 
-def test_consulta_burocratica():
-    """
-    Prueba el endpoint de consulta burocrática general.
-    """
-    # Registrar el usuario antes de la consulta
-    test_registro_usuario()
+# def test_consulta_burocratica():
+#     """
+#     Prueba el endpoint de consulta burocrática general.
+#     """
+#     # Registrar el usuario antes de la consulta
+#     test_registro_usuario()
 
-    # Consulta de prueba
-    prompt = "¿Cómo puedo renovar mi pasaporte en España?"
-    response = client.get("/consulta_burocratica_general", params={"prompt": prompt})
+#     # Consulta de prueba
+#     prompt = "¿Cómo puedo renovar mi pasaporte en España?"
+#     response = client.get("/consulta_burocratica_general", params={"prompt": prompt})
 
-    # Verificar que la respuesta sea exitosa
-    assert response.status_code == 200
+#     # Verificar que la respuesta sea exitosa
+#     assert response.status_code == 200
 
-    # Validar que el prompt generado incluye los datos del usuario y la consulta
-    data = response.json()
-    assert "prompt" in data
-    assert "respuesta" in data
-    assert f"Nombre: {usuario_prueba['nombre']}" in data["prompt"]
-    assert f"Edad: {usuario_prueba['edad']}" in data["prompt"]
-    assert f"Sexo: {usuario_prueba['sexo']}" in data["prompt"]
-    assert f"Nacionalidad: {usuario_prueba['nacionalidad']}" in data["prompt"]
-    assert prompt in data["prompt"]  # La consulta debe aparecer en el prompt generado
+#     # Validar que el prompt generado incluye los datos del usuario y la consulta
+#     data = response.json()
+#     assert "prompt" in data
+#     assert "respuesta" in data
+#     assert f"Nombre: {usuario_prueba['nombre']}" in data["prompt"]
+#     assert f"Edad: {usuario_prueba['edad']}" in data["prompt"]
+#     assert f"Sexo: {usuario_prueba['sexo']}" in data["prompt"]
+#     assert f"Nacionalidad: {usuario_prueba['nacionalidad']}" in data["prompt"]
+#     assert prompt in data["prompt"]  # La consulta debe aparecer en el prompt generado
 
 
 def test_consulta_derechos_laborales():

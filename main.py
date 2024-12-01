@@ -1,5 +1,7 @@
 # from langchain.prompts import PromptTemplate # ojo 
 from fastapi import FastAPI, HTTPException
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import HTMLResponse
 from modelo_ai import generar_respuesta
 from pydantic import BaseModel
 from typing import Optional
@@ -9,21 +11,8 @@ import database
 load_dotenv(override=True)
 # override=True
 
-# --------------------------------------------------
-# # Verificar si se cargan las variables correctamente
-# # CONTROL DE ERRORES
-# # Depuración: Imprimir las variables cargadas
-# print(f"GEMINI_API_KEY: {os.getenv("GEMINI_API_KEY")}")
-# print(f"DB_PORT: {os.getenv("DB_PORT")}")
-# print(f"DB_USERNAME: {os.getenv("DB_USERNAME")}")
-# print(f"DB_PORT: {os.getenv("DB_PORT")}")
-# print(f"GEMINI_API_KEY: {os.getenv("GEMINI_API_KEY")}")
-# db_port = os.getenv("DB_PORT")
-# if db_port is None:
-#     raise ValueError("DB_PORT no está definido en el archivo .env")
-# else:
-#     port = int(db_port)
-# --------------------------------------------------
+from fastapi.middleware.cors import CORSMiddleware
+
 
 
 
@@ -32,6 +21,30 @@ gemini_api_key = os.getenv("GEMINI_API_KEY")   #database
 
 app = FastAPI()
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Permitir cualquier origen
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
+# _______________________________________________________________
+# Montar la carpeta de archivos estáticos
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
+# Ruta para servir el archivo HTML principal
+@app.get("/", response_class=HTMLResponse)
+def serve_homepage():
+    with open("templates/index.html", "r", encoding="utf-8") as file:
+        return HTMLResponse(content=file.read())
+    
+
+@app.get("/consulta.html", response_class=HTMLResponse)
+def serve_consulta():
+    with open("templates/consulta.html", "r", encoding="utf-8") as file:
+        return HTMLResponse(content=file.read())
 # _______________________________________________________________
 
 # Variable global para guardar el usuario activo
@@ -56,6 +69,11 @@ def registro_usuario(datos: DatosUsuario):
     usuario_activo = datos  # Guardamos el modelo completo como usuario activo
     return {"mensaje": "Información registrada exitosamente.", "datos": usuario_activo}
 
+@app.get("/acciones", response_class=HTMLResponse)
+def serve_acciones():
+    with open("templates/acciones.html", "r", encoding="utf-8") as file:
+        return HTMLResponse(content=file.read())
+    
 
 
 @app.get("/consulta_burocratica_general")
@@ -1074,3 +1092,6 @@ def consulta_homologacion_titulos_extranjeros(prompt: str):
 ## GET /tramites/sanitarios/cambio-medico-cabecera
 ## GET /tramites/educativos/becas-ayudas-estudio
 ## GET /tramites/educativos/homologacion-titulos-extranjeros
+
+
+# http://127.0.0.1:8000/tramites/trafico/renovacion-carnet-conducir?prompt=MiConsulta
