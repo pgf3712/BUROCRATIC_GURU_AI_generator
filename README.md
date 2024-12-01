@@ -1,5 +1,9 @@
 # 🏛️ Bureaucratic Guru: Tu Asistente Burocrático Inteligente ❤️💛❤️
 
+<p align="center">
+  <img src="./images/guru.png" alt="Descripción de la imagen">
+</p>
+
 ## 🤔 ¿Qué es Bureaucratic Guru?
 
 **Bureaucratic Guru** es un proyecto de inteligencia artificial que actúa como un asistente personalizado para ayudarte a resolver consultas burocráticas en España. A través de un modelo de lenguaje basado en **Gemini AI**, la aplicación adapta sus respuestas según los datos que proporciones en el registro inicial.
