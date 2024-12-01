@@ -1,3 +1,4 @@
+# from langchain.prompts import PromptTemplate # ojo 
 from fastapi import FastAPI, HTTPException
 from modelo_ai import generar_respuesta
 from pydantic import BaseModel
@@ -57,7 +58,7 @@ def registro_usuario(datos: DatosUsuario):
 
 
 
-@app.get("/consulta_burocratica")
+@app.get("/consulta_burocratica_general")
 def consulta_burocratica(prompt: str):
     global usuario_activo
     if not usuario_activo:
