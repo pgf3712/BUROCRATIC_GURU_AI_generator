@@ -1,4 +1,4 @@
-# 🏛️ Bureaucratic Guru: Tu Asistente Burocrático Inteligente 🇪🇸
+# 🏛️ Bureaucratic Guru: Tu Asistente Burocrático Inteligente ❤️💛❤️
 
 ## 🤔 ¿Qué es Bureaucratic Guru?
 
