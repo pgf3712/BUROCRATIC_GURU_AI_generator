@@ -4,17 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Consulta</title>
+    <link rel="stylesheet" href="/static/styles.css"> <!-- Enlace al archivo CSS -->
 </head>
 <body>
-    <h1>Introduce tu consulta</h1>
-    <p id="accionSeleccionada"></p> <!-- Muestra la acción seleccionada -->
+    <div class="container">
+        <h1>Introduce tu consulta</h1>
+        <p id="accionSeleccionada"></p> <!-- Muestra la acción seleccionada -->
 
-    <!-- Formulario para la consulta -->
-    <label for="consultaInput">Escribe tu consulta:</label>
-    <input type="text" id="consultaInput" placeholder="Introduce tu consulta aquí">
-    <button onclick="enviarConsulta()">Enviar Consulta</button>
+        <!-- Formulario para la consulta -->
+        <label for="consultaInput">Escribe tu consulta:</label>
+        <input type="text" id="consultaInput" placeholder="Introduce tu consulta aquí">
+        <button onclick="enviarConsulta()">Enviar Consulta</button>
 
-    <div id="resultado"></div>
+        <div id="resultado"></div>
+    </div>
 
     <script>
         // Leer el parámetro 'endpoint' de la URL
