@@ -6,7 +6,7 @@
 
 ## 🤔 ¿Qué es Bureaucratic Guru?
 
-**Bureaucratic Guru** es un proyecto de inteligencia artificial que actúa como un asistente personalizado para ayudarte a resolver consultas burocráticas en España. A través de un modelo de lenguaje basado en **Gemini AI**, la aplicación adapta sus respuestas según los datos que proporciones en el registro inicial.
+**Bureaucratic Guru** es un proyecto de Inteligencia Artificial que actúa como un asistente personalizado para ayudarte a resolver consultas burocráticas en **España**. A través de un modelo de lenguaje basado en **Gemini AI**, la aplicación adapta sus respuestas según los datos que proporciones en el registro inicial.
 
 El objetivo es simplificar trámites complejos y ofrecer información clara, útil y personalizada. Desde consultas laborales hasta trámites médicos o fiscales, **Bureaucratic Guru** está aquí para ti. 🌟
 
@@ -33,8 +33,9 @@ El objetivo es simplificar trámites complejos y ofrecer información clara, út
 ---
 
 ## 🐳 Ejecución Rápida con Docker Hub
-docker pull tuusuario/bureaucratic-guru
-docker run -d -p 8000:8000 tuusuario/bureaucratic-guru
+docker pull pgf3712/burocraticguru:v1
+docker run -d -p 8000:8000 pgf3712/burocraticguru:v1
+localhost:8000
 
 ---
 ---
