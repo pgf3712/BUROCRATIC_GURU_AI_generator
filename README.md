@@ -33,9 +33,9 @@ El objetivo es simplificar trámites complejos y ofrecer información clara, út
 ---
 
 ## 🐳 Ejecución Rápida con Docker Hub
-docker pull pgf3712/burocraticguru:v1
-docker run -d -p 8000:8000 pgf3712/burocraticguru:v1
-localhost:8000
+- docker pull pgf3712/burocraticguru:v1
+- docker run -d -p 8000:8000 pgf3712/burocraticguru:v1
+- localhost:8000
 
 ---
 ---
