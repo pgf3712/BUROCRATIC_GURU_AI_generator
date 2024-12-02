@@ -4,6 +4,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import HTMLResponse
 from modelo_ai import generar_respuesta
 from pydantic import BaseModel
+import uvicorn
 from typing import Optional
 from dotenv import load_dotenv  #database
 import os    #database
@@ -1095,3 +1096,11 @@ def consulta_homologacion_titulos_extranjeros(prompt: str):
 
 
 # http://127.0.0.1:8000/tramites/trafico/renovacion-carnet-conducir?prompt=MiConsulta
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="127.0.0.1", port=8000)
+
+
+
+# docker pull pgf3712/burocraticguru:v1
+# docker run --env-file .env -p 8000:8000 -t pgf3712/burocraticguru:v1
